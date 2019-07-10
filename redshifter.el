@@ -12,6 +12,7 @@
   (shell-command "redshift -x"))
 
 (defun redshifter-reset ()
+  (interactive)
   (redshifter-reset-screen)
   (setq redshifter-curr-screen-temp nil))
 
