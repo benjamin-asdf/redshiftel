@@ -1,5 +1,5 @@
 (defconst redshifter-default-screen-temp 5400)
-(defconst redshifter-step-size 100)
+(defconst redshifter-step-size 500)
 
 (defvar redshifter-curr-screen-temp nil)
 
