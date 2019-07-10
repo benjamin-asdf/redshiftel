@@ -23,3 +23,11 @@
         (setq screen-temp (- redshifter-curr-screen-temp redshifter-step-size))
       (setq screen-temp redshifter-default-screen-temp))
     (redshifter-set-screen-temp screen-temp)))
+
+(defun redshifter-decrease ()
+  (interactive)
+  (let ((screen-temp))
+    (if redshifter-curr-screen-temp
+        (setq screen-temp (+ redshifter-curr-screen-temp redshifter-step-size))
+      (setq screen-temp redshifter-default-screen-temp))
+    (redshifter-set-screen-temp screen-temp)))
