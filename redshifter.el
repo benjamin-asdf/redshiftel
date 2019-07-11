@@ -1,33 +1,53 @@
-(defconst redshifter-default-screen-temp 5400)
+(defconst redshifter-default-temp 5400)
 (defconst redshifter-step-size 500)
 
-(defvar redshifter-curr-screen-temp nil)
+(defconst redshifter-min 10000)
+(defconst redshifter-max 25000)
 
-(defun redshifter-set-screen-temp (temp)
-  (redshifter-reset-screen)
-  (shell-command (format "redshift -O %s" temp))
-  (setq redshifter-curr-screen-temp temp))
+(defvar redshifter-curr-temp nil)
 
-(defun redshifter-reset-screen ()
-  (shell-command "redshift -x"))
+(defun redshifter--set-screen-temp (temp)
+  (shell-command (format "redshift -r -P -O %s" temp))
+  (setq redshifter-curr-temp temp))
 
 (defun redshifter-reset ()
   (interactive)
-  (redshifter-reset-screen)
-  (setq redshifter-curr-screen-temp nil))
+  (shell-command "redshift -x")
+  (setq redshifter-curr-temp nil))
+
+
+(defun redshifter-change-screen-temp (increase)
+  (interactive "P")
+  ;;TODO
+  )
+
+
+(defun redshifter-test-increase ()
+  (interactive)
+  )
+
+;;TODO
+(defun redshifter-new-screen-temp (increase)
+  (interactive "P")
+  (let ((temp (or redshifter-curr-temp redshifter-default-temp)))
+    (when increase (- temp redshifter-step-size)
+          (+ temp redshifter-step-size))
+    (message (format "new screen temp would be %s" temp))
+
+    ))
 
 (defun redshifter-increase ()
   (interactive)
   (let ((screen-temp))
-    (if redshifter-curr-screen-temp
-        (setq screen-temp (- redshifter-curr-screen-temp redshifter-step-size))
-      (setq screen-temp redshifter-default-screen-temp))
+    (if redshifter-curr-temp
+        (setq screen-temp (- redshifter-curr-temp redshifter-step-size))
+      (setq screen-temp redshifter-default-temp))
     (redshifter-set-screen-temp screen-temp)))
 
 (defun redshifter-decrease ()
   (interactive)
   (let ((screen-temp))
-    (if redshifter-curr-screen-temp
-        (setq screen-temp (+ redshifter-curr-screen-temp redshifter-step-size))
-      (setq screen-temp redshifter-default-screen-temp))
+    (if redshifter-curr-temp
+        (setq screen-temp (+ redshifter-curr-temp redshifter-step-size))
+      (setq screen-temp redshifter-default-temp))
     (redshifter-set-screen-temp screen-temp)))
