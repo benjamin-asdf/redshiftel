@@ -15,39 +15,18 @@
   (shell-command "redshift -x")
   (setq redshifter-curr-temp nil))
 
-
-(defun redshifter-change-screen-temp (increase)
-  (interactive "P")
-  ;;TODO
-  )
-
-
-(defun redshifter-test-increase ()
-  (interactive)
-  )
-
-;;TODO
-(defun redshifter-new-screen-temp (increase)
-  (interactive "P")
-  (let ((temp (or redshifter-curr-temp redshifter-default-temp)))
-    (when increase (- temp redshifter-step-size)
-          (+ temp redshifter-step-size))
-    (message (format "new screen temp would be %s" temp))
-
-    ))
-
 (defun redshifter-increase ()
   (interactive)
-  (let ((screen-temp))
-    (if redshifter-curr-temp
-        (setq screen-temp (- redshifter-curr-temp redshifter-step-size))
-      (setq screen-temp redshifter-default-temp))
-    (redshifter-set-screen-temp screen-temp)))
+  (redshifer-change '-))
 
 (defun redshifter-decrease ()
   (interactive)
+  (redshifer-change '+))
+
+(defun redshifer-change (op)
+  (interactive)
   (let ((screen-temp))
     (if redshifter-curr-temp
-        (setq screen-temp (+ redshifter-curr-temp redshifter-step-size))
+        (setq screen-temp (funcall op redshifter-curr-temp redshifter-step-size))
       (setq screen-temp redshifter-default-temp))
-    (redshifter-set-screen-temp screen-temp)))
+    (redshifter--set-screen-temp screen-temp)))
