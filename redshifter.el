@@ -28,8 +28,6 @@
     (if redshifter-curr-temp
         (setq screen-temp (funcall op redshifter-curr-temp redshifter-step-size))
       (setq screen-temp redshifter-default-temp))
-    (if (> screen-temp redshifter-max)
-        (setq screen-temp redshifter-max))
-    (if (< screen-temp redshifter-min)
-        (setq screen-temp redshifter-min))
-    (redshifter--set-screen-temp screen-temp)))
+    (if (or (> screen-temp redshifter-max) (< screen-temp redshifter-min))
+        (message "redshifter bounds reached.")
+      (redshifter--set-screen-temp screen-temp))))
