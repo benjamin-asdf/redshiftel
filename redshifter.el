@@ -1,5 +1,5 @@
 (defconst redshifter-default-temp 5400)
-(defconst redshifter-step-size 1000)
+(defconst redshifter-step-size 500)
 (defconst redshifter-min 1000)
 (defconst redshifter-max 25000)
 
