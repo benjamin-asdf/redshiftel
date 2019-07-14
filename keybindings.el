@@ -2,16 +2,16 @@
   :title "Redshifter Transient State"
   :doc "
  Commands^^^^^^
-----------------------------^^^^^^  ------------------------------------------^^^^^^  ------------^^
- [_j_/_n_] more orange
- [_k_/_p_] more blue
+----------------------------
+ [_j_/_k_] more orange / blue
+ [_J_/_K_] MORE orange / blue
  [_x_] reset
  [_q_] quit "
   :bindings
   ("j" redshifter-more-orange)
-  ("n" redshifter-more-orange)
+  ("J" redshifter-more-orange-big)
   ("k" redshifter-more-blue)
-  ("p" redshifter-more-blue)
+  ("K" redshifter-more-blue-big)
   ("x" redshifter-reset)
   ("q" nil :exit t))
 
