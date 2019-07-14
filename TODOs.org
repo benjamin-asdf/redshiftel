@@ -1,0 +1,3 @@
+- write tests
+- document better
+- make it a package
