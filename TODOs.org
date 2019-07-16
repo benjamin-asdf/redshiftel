@@ -1,3 +1,4 @@
+- raname redshifter to redshifel
 - write tests
 - document better
 - make it a package
