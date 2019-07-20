@@ -27,7 +27,7 @@
 (defun redshiftel-more-orange-big ()
   "Change screen temp to be way more orange. See also redshiftel-more-orange"
   (interactive)
-  (redshiftel-change '- redshifter-big-step-factor))
+  (redshiftel-change '- redshiftel-big-step-factor))
 
 (defun redshiftel-more-blue ()
   "Change screen temp to be a bit more blue"
@@ -37,7 +37,7 @@
 (defun redshiftel-more-blue-big ()
   "Change screen temp to be way more blue. See also redshiftel-more-blue"
   (interactive)
-  (redshiftel-change '+ redshifter-big-step-factor))
+  (redshiftel-change '+ redshiftel-big-step-factor))
 
 (defun redshiftel-change (op &optional factor)
   "Set screen temp and keep track of currently set screen temp. op should be either + or -,
@@ -46,8 +46,8 @@ for more blue or more orange. Provide a factor to influence step size."
   (setq factor (if factor factor redshiftel-default-step-factor))
   (let ((screen-temp))
     (if redshiftel-curr-temp
-        (setq screen-temp (funcall op redshiftel-curr-temp (* redshifter-step-size factor)))
+        (setq screen-temp (funcall op redshiftel-curr-temp (* redshiftel-step-size factor)))
       (setq screen-temp redshiftel-default-temp))
-    (if (or (> screen-temp redshiftel-max) (< screen-temp redshifter-min))
+    (if (or (> screen-temp redshiftel-max) (< screen-temp redshiftel-min))
         (message "redshiftel bounds reached.")
       (redshiftel--set-screen-temp screen-temp))))
