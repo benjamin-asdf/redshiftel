@@ -2,9 +2,9 @@
 (defconst redshifter-min 1000)
 (defconst redshifter-max 25000)
 
-(defconst redshifter-step-size 500)
+(defconst redshifter-step-size 250)
 (defconst redshifter-default-step-factor 1)
-(defconst redshifter-big-step-factor 3)
+(defconst redshifter-big-step-factor 5)
 
 (defvar redshifter-curr-temp nil)
 
