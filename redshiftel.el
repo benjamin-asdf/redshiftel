@@ -2,9 +2,9 @@
 (defconst redshiftel-min 1000)
 (defconst redshiftel-max 25000)
 
-(defconst redshiftel-step-size 250)
+(defconst redshiftel-step-size 100)
 (defconst redshiftel-default-step-factor 1)
-(defconst redshiftel-big-step-factor 5)
+(defconst redshiftel-big-step-factor 6)
 
 (defvar redshiftel-curr-temp nil)
 
