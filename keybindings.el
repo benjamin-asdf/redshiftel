@@ -1,5 +1,5 @@
-(spacemacs|define-transient-state redshifter
-  :title "Redshifter Transient State"
+(spacemacs|define-transient-state redshiftel
+  :title "Redshiftel Transient State"
   :doc "
  Commands^^^^^^
 ----------------------------
@@ -8,11 +8,11 @@
  [_x_] reset
  [_q_] quit "
   :bindings
-  ("j" redshifter-more-orange)
-  ("J" redshifter-more-orange-big)
-  ("k" redshifter-more-blue)
-  ("K" redshifter-more-blue-big)
-  ("x" redshifter-reset)
+  ("j" redshiftel-more-orange)
+  ("J" redshiftel-more-orange-big)
+  ("k" redshiftel-more-blue)
+  ("K" redshiftel-more-blue-big)
+  ("x" redshiftel-reset)
   ("q" nil :exit t))
 
-(spacemacs/set-leader-keys "oer" 'spacemacs/redshifter-transient-state/body)
+(spacemacs/set-leader-keys "oer" 'spacemacs/redshiftel-transient-state/body)
