@@ -42,7 +42,7 @@
 (defun redshiftel-change (op &optional factor)
   "Set screen temp and keep track of currently set screen temp.
 OP should be either + or -,for more blue or more orange.
-If non-nil FACTOR should be a number to influences step size."
+If non-nil, FACTOR should be a number to influences step size."
   (interactive)
   (setq factor (if factor factor redshiftel-default-step-factor))
   (let ((screen-temp))
