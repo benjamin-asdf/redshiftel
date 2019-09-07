@@ -9,7 +9,7 @@
 (defvar redshiftel-curr-temp nil)
 
 (defun redshiftel--set-screen-temp (temp)
-  "Set the screen temperature to temp"
+  "Set the screen temperature to TEMP"
   (shell-command (format "redshift -r -P -O %s" temp))
   (setq redshiftel-curr-temp temp))
 
@@ -40,8 +40,9 @@
   (redshiftel-change '+ redshiftel-big-step-factor))
 
 (defun redshiftel-change (op &optional factor)
-  "Set screen temp and keep track of currently set screen temp. op should be either + or -,
-for more blue or more orange. Provide a factor to influence step size."
+  "Set screen temp and keep track of currently set screen temp.
+OP should be either + or -,for more blue or more orange.
+If non-nil FACTOR should be a number to influences step size."
   (interactive)
   (setq factor (if factor factor redshiftel-default-step-factor))
   (let ((screen-temp))
