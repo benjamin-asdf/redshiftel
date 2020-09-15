@@ -15,4 +15,3 @@
   ("x" redshiftel-reset)
   ("q" nil :exit t))
 
-(spacemacs/set-leader-keys "oer" 'spacemacs/redshiftel-transient-state/body)
